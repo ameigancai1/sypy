@@ -25,7 +25,7 @@ jobs:
                   pip install -r ./requirements.txt
 
             - name: "run sypy.py"
-              run: python Sign_WenShuShu_selenium.py
+              run: python sypy.py
               env:
                   USER: ${{ secrets.USER }}
                   PASSWORD: ${{ secrets.PASSWORD }}
