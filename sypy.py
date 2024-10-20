@@ -148,7 +148,7 @@ data = '{"nameOrEmail":' + getPara("username") + ',"userPassword":' + md5 + ',"c
 session = requests.session()
 response = session.post('https://ld246.com/login?goto=https://ld246.com/settings/point', data=data, headers=headers,
                         verify=False, proxies=proxy)
-print("登录结果" + response.text)
+print("login msg:" + response.text)
 tokenName = response.json()["tokenName"]
 token = response.json()["token"]
 
