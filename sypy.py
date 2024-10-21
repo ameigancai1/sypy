@@ -68,17 +68,12 @@ headersDayliCheck = {
 }
 
 def getPara(name):
-    try:
-        return quicker.context.GetVarValue(name)
-    except:
-        return paras[name]
+    return paras[name]
 
 
 def setPara(name, value):
-    try:
-        return quicker.context.SetVarValue(name, value)
-    except:
-        paras[name] = value
+
+    paras[name] = value
     print(value)
     return value
 
