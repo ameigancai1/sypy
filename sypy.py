@@ -177,38 +177,38 @@ else:
     appendLog("签到异常")
 printLog()
 
-def pushplus_bot(title: str, content: str) -> None:
-    """
-    通过 push+ 推送消息。
-    """
-    if not push_config.get("PUSH_PLUS_TOKEN"):
-        print("PUSHPLUS 服务的 PUSH_PLUS_TOKEN 未设置!!\n取消推送")
-        return
-    print("PUSHPLUS 服务启动")
+# def pushplus_bot(title: str, content: str) -> None:
+#     """
+#     通过 push+ 推送消息。
+#     """
+#     if not push_config.get("PUSH_PLUS_TOKEN"):
+#         print("PUSHPLUS 服务的 PUSH_PLUS_TOKEN 未设置!!\n取消推送")
+#         return
+#     print("PUSHPLUS 服务启动")
 
-    url = "http://www.pushplus.plus/send"
-    data = {
-        "token": push_config.get("PUSH_PLUS_TOKEN"),
-        "title": title,
-        "content": content,
-        "topic": push_config.get("PUSH_PLUS_USER"),
-    }
-    body = json.dumps(data).encode(encoding="utf-8")
-    headers = {"Content-Type": "application/json"}
-    response = requests.post(url=url, data=body, headers=headers).json()
+#     url = "http://www.pushplus.plus/send"
+#     data = {
+#         "token": push_config.get("PUSH_PLUS_TOKEN"),
+#         "title": title,
+#         "content": content,
+#         "topic": push_config.get("PUSH_PLUS_USER"),
+#     }
+#     body = json.dumps(data).encode(encoding="utf-8")
+#     headers = {"Content-Type": "application/json"}
+#     response = requests.post(url=url, data=body, headers=headers).json()
 
-    if response["code"] == 200:
-        print("PUSHPLUS 推送成功！")
+#     if response["code"] == 200:
+#         print("PUSHPLUS 推送成功！")
 
-    else:
+#     else:
 
-        url_old = "http://pushplus.hxtrip.com/send"
-        headers["Accept"] = "application/json"
-        response = requests.post(url=url_old, data=body, headers=headers).json()
+#         url_old = "http://pushplus.hxtrip.com/send"
+#         headers["Accept"] = "application/json"
+#         response = requests.post(url=url_old, data=body, headers=headers).json()
 
-        if response["code"] == 200:
-            print("PUSHPLUS(hxtrip) 推送成功！")
+#         if response["code"] == 200:
+#             print("PUSHPLUS(hxtrip) 推送成功！")
 
-        else:
-            print("PUSHPLUS 推送失败！")
+#         else:
+#             print("PUSHPLUS 推送失败！")
 
