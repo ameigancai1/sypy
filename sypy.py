@@ -4,6 +4,9 @@ import json
 import re
 import hashlib
 import os
+import urllib3
+
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 paras = {
     "username": os.environ.get('USER'),
